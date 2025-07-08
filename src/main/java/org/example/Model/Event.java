@@ -19,7 +19,8 @@ public class Event {
         this.date = date;
         this.time = time;
         this.nbrPlaces = nbrPlaces;
-        this.billets = new ArrayList<>();
+
+        generateBillets();
     }
 
     private void generateBillets() {
