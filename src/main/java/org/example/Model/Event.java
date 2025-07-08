@@ -22,10 +22,64 @@ public class Event {
         this.billets = new ArrayList<>();
     }
 
+    public boolean verifDispo(){
+        return this.place.getCapacite()>this.billets.toArray().length;
+
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Lieu getPlace() {
+        return place;
+    }
+
+    public void setPlace(Lieu place) {
+        this.place = place;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public int getNbrPlaces() {
+        return nbrPlaces;
+    }
+
+    public void setNbrPlaces(int nbrPlaces) {
+        this.nbrPlaces = nbrPlaces;
+    }
+
+    public List<Billet> getBillets() {
+        return billets;
+    }
+
     public void displayTickets(){
-        for(Billet billet : billets){
-            System.out.println(billet);
+        for(Billet billet : billets) {
+            System.out.println(billet.getEvent().getName());
+            System.out.println(billet.getNumeroPlace());
+
         }
+    }
+
+    public void addBillet(Billet billet) {
+        billets.add(billet);
     }
 
 }

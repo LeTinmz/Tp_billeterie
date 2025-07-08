@@ -13,5 +13,35 @@ public class Billet {
         this.type = type;
     }
 
+    public int getNumeroPlace() {
+        return numeroPlace;
+    }
 
+    public void setNumeroPlace(int numeroPlace) {
+        this.numeroPlace = numeroPlace;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

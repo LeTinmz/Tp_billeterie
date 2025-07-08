@@ -20,8 +20,15 @@ public class Client {
         this.billets = new ArrayList<>();
     }
 
-    public void reserverBillet(Billet billet) {
-        billets.add(billet);
+    public void reserverBillet(Event event) {
+       if(!event.verifDispo()){
+           System.out.println("Apluplaces");
+           return;
+       }
+
+       Billet billet = new Billet(event.getBillets().toArray().length+1,this, event, "standard" );
+       billets.add(billet);
+       event.addBillet(billet);
     }
 
 }
