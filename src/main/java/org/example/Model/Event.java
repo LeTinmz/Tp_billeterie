@@ -1,5 +1,7 @@
 package org.example.Model;
 
+import org.example.Exceptions.NotFoundException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -29,8 +31,12 @@ public class Event {
         }
     }
 
-    public boolean verifDispo() {
-        return billets.stream().anyMatch(b -> b.getClient() == null);
+    public boolean verifDispo() throws NotFoundException {
+        boolean isDispo = billets.stream().anyMatch(b -> b.getClient() == null);
+        if(!isDispo) {
+            throw new NotFoundException("yapalaplace");
+        }
+        return isDispo;
     }
 
     public String getName() {

@@ -63,20 +63,21 @@ public class Client {
     }
 
     public void reserverBillet(Event event) {
+        try {
+
+            event.verifDispo();
 
 
-        if (!event.verifDispo()) {
-            System.out.println("Apluplaces");
-            return;
-        }
-
-        for (Billet billet : event.getBillets()) {
-            if (billet.getClient() == null) {
-                billet.setClient(this);
-                billets.add(billet);
-                return;
-
+            for (Billet billet : event.getBillets()) {
+                if (billet.getClient() == null) {
+                    billet.setClient(this);
+                    billets.add(billet);
+                    return;
+                }
             }
+
+        } catch (NotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
