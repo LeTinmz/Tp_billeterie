@@ -21,14 +21,18 @@ public class Client {
     }
 
     public void reserverBillet(Event event) {
-       if(!event.verifDispo()){
-           System.out.println("Apluplaces");
-           return;
-       }
+        if (!event.verifDispo()) {
+            System.out.println("Apluplaces");
+            return;
+        }
 
-       Billet billet = new Billet(event.getBillets().toArray().length+1,this, event, "standard" );
-       billets.add(billet);
-       event.addBillet(billet);
+        for (Billet billet : event.getBillets()) {
+            if (billet.getClient() == null) {
+                billet.setClient(this);
+                billets.add(billet);
+                return;
+
+            }
+        }
     }
-
 }

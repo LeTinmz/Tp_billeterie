@@ -22,10 +22,16 @@ public class Event {
         this.billets = new ArrayList<>();
     }
 
-    public boolean verifDispo(){
-        return this.place.getCapacite()>this.billets.toArray().length;
-
+    private void generateBillets() {
+        for (int i = 1; i <= nbrPlaces; i++) {
+            this.billets.add(new Billet(i, null, this, "standard"));
+        }
     }
+
+    public boolean verifDispo() {
+        return billets.stream().anyMatch(b -> b.getClient() == null);
+    }
+
     public String getName() {
         return name;
     }
