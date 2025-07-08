@@ -1,5 +1,7 @@
 package org.example.Model;
 
+import org.example.Exceptions.NotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +63,8 @@ public class Client {
     }
 
     public void reserverBillet(Event event) {
+
+
         if (!event.verifDispo()) {
             System.out.println("Apluplaces");
             return;
